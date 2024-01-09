@@ -6,7 +6,9 @@ import com.imooc.cloud.mall.practice.cartorder.model.vo.OrderVO;
 import com.imooc.cloud.mall.practice.cartorder.service.OrderService;
 import com.imooc.practice.common.common.ApiRestResponse;
 import io.swagger.annotations.ApiOperation;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,7 +52,7 @@ public class OrderController {
     @PostMapping("order/cancel")
     @ApiOperation("前台取消订单")
     public ApiRestResponse cancel(@RequestParam String orderNo) {
-        orderService.cancel(orderNo);
+        orderService.cancel(orderNo, false);
         return ApiRestResponse.success();
     }
 
